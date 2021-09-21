@@ -12,6 +12,6 @@ Components
 
 https://reactnative.dev/docs/components-and-apis
 
-Per crear botons fer servir <TouchableOpacity/>
+Per crear botons fer servir <TouchableOpacity/> per ios i TouchableNativeFeedback per android
 
 
