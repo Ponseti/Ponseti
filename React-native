@@ -1,3 +1,9 @@
 Crear Projectes React-native
 
 Power Shell  npx react-native init MiPrimerApp --template react-native-template-typescript
+
+Arrancar l'app
+- npx react-native run-android
+
+
+
