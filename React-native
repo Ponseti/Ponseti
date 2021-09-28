@@ -22,4 +22,7 @@ Navegacio  "React Navigation"
 https://reactnavigation.org/docs/stack-navigator/
 https://reactnavigation.org/docs/getting-started
 
+per intal.lar falta per windows
+npm i react-native-gesture-handler
+
 
