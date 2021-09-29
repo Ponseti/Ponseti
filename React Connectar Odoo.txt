@@ -1,0 +1,117 @@
+***export const getProducte=async(producte)=>{
+        
+    const url=`https:friman.cat/app/getproduct?codi=${producte}`
+    const resp=await fetch(url)
+    const dades=await resp.json();
+
+    
+
+    
+
+    return dades;
+
+}
+
+
+***import React from 'react'
+
+export const ProductItem = ({codi,nom}) => {
+
+    
+
+    return (
+        <div>
+            
+            <p>CODI: {codi}</p>
+            <p>NOM:{nom}</p>
+            
+        </div>
+    )
+}
+
+***import React from 'react';
+import ReactDOM from 'react-dom';
+
+import {SearchProducte} from './SearchProducte';
+
+import './index.css';
+
+
+
+ReactDOM.render(
+    <SearchProducte />,
+    document.getElementById('root')
+  );
+
+
+
+***import React, { Fragment, useState } from 'react';
+import { getProducte } from './helpers/getProducte';
+import { ProductItem } from './components/ProductItem';
+
+
+export const SearchProducte = () => {
+
+
+    const [producte,setProducte]=useState('');
+
+    const [productes,setProductes]=useState();
+
+
+    const enter=(e)=>{
+        e.preventDefault();// no fa el refresch de la pantalla
+        
+        getProducte(producte)
+            
+            .then((producte )=>{
+
+                console.log(producte.status);
+                console.log(producte.codi);
+                console.log(producte.name);
+                console.log(producte);
+
+                setProductes(producte.name);
+                
+
+            })
+            
+            .catch( console.warn )
+    
+         
+    }
+
+
+    const inputproducte=(e)=>{
+
+        setProducte(e.target.value);
+
+        
+    }
+
+    return (
+        <>
+            <form onSubmit={enter}>
+                <h2> Buscador Producte</h2>
+
+                <input
+                        type="text"
+                        value={producte}
+                        onChange={inputproducte}
+                ></input>
+
+                
+
+              
+
+            </form>
+
+
+            
+            <p>NOM: {productes}</p>
+            
+
+          
+
+        </>
+    )
+}
